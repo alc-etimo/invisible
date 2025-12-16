@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariane Lesnyak | Portuguese Language Specialist - AI Trainer</title>
+    <style>
+        /* RESET, FONT & ESTILOS BASE */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fff; 
+            color: #0F0F0F;
+            line-height: 1.4;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* VARIÁVEIS DE CORES */
+        :root {
+            --color-primary: #0F0F0F;
+            --color-bg-light: #F5F5F5;
+            --color-accent-yellow: #dcf58f;
+            --color-accent-pink: #FF69B4;
+            --color-accent-blue: #40E0D0;
+            --color-accent-brown: #CD853F;
+            --color-border: rgba(0,0,0,0.05);
+            --color-white: #fff;
+        }
+        
+        /* NAVEGAÇÃO */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px;
+            padding: 0 40px;
+            height: 72px; 
+            display: flex;
+            align-items: center;
+            
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .nav-links-wrapper-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-links-wrapper-sub-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .nav-link-2, .nav--link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0;
+            color: var(--color-primary);
+            transition: opacity 0.2s;
+            line-height: 12px;
+            height: 12px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        
+        .nav-link-2:hover, .nav--link:hover {
+            opacity: 0.7;
+        }
+        
+        .nav-link-icon {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1;
+            text-align: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            margin-right: 32px;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        .logo-line1, .logo-line2 {
+            display: block;
+        }
+        
+        .nav--button {
+            background-color: #dcf58f;
+            color: var(--color-primary);
+            padding: 13px 20px;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0;
+            transition: all 0.2s;
+            line-height: 12px;
+            cursor: pointer;
+            box-shadow: 0 0 #0000, 0 .1px .2px #0000001a, 0 .9px 1.9px #0000001d, 0 5.1px 10.9px #00000020;
+        }
+        
+        /* DROPDOWN MENU GERAL */
+        .dropdown-menu {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            display: none;
+            border-bottom: 1px solid var(--color-border);
+            animation: fadeIn 0.3s ease-out;
+            min-height: 70vh;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-content-area {
+            display: flex;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 40px 40px 60px;
+            min-height: 60vh;
+        }
+        
+        .section-nav {
+            width: 30%;
+            border-right: 1px solid var(--color-border);
+            padding-right: 40px;
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+        
+        .section-detail {
+            width: 70%;
+            padding-left: 50px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        /* Ajustes para diminuir fonte e evitar barra de rolagem nos submenus */
+        #about-dropdown .section-detail {
+            font-size: 0.95em;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+        
+        .section-title {
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-primary);
+            position: relative;
+        }
+        
+        .section-title:hover {
+            transform: translateX(10px);
+            color: var(--color-accent-blue);
+        }
+        
+        .section-title.active {
+            color: var(--color-accent-blue);
+            font-weight: 600;
+        }
+        
+        /* Close button styles - FIXED */
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-primary);
+            padding: 8px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--color-accent-blue);
+        }
+        
+        .close-icon {
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+        
+        .close-icon::before,
+        .close-icon::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 1.5px;
+            background-color: currentColor;
+            top: 50%;
+            left: 0;
+        }
+        
+        .close-icon::before {
+            transform: rotate(45deg);
+        }
+        
+        .close-icon::after {
+            transform: rotate(-45deg);
+        }
+        
+        /* HERO SECTION - NOVO ESTILO */
+        #hero {
+            top: -10px;
+            height: 100vh;
+            min-height: 720px;
+            position: relative;
+            background-color: var(--color-bg-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Alinha o conteúdo na parte inferior */
+            padding-top: 72px;
+        }
+        
+        #animation-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Container que ocupa toda a largura para os blocos */
+        .hero-blocks-container {
+            display: flex;
+            width: 100%;
+padding-top:50px;
+height: 300px; /* Altura fixa dos boxes na parte inferior */
+            z-index: 10;
+        }
+
+        /* BOX ESQUERDO (H1) - Sem transparência */
+        .hero-left-block {
+            width: 50%;
+            background-color: var(--color-white); /* Opaco */
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            margin-bottom: 0px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--color-primary);
+            max-width: 600px;
+        }
+
+        /* BOX DIREITO (P) - Com gradiente e transparência */
+        .hero-right-block {
+            width: 50%;
+            background: linear-gradient(to top, 
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.9) 30%, 
+                rgba(255, 255, 255, 0.8) 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 40px;
+            margin-bottom: 0px;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: rgba(15, 15, 15, 0.8);
+            max-width: 450px;
+            text-align: left;
+        }
+
+        /* COLLABORATIONS SECTION - Simplificada */
+        #collaborations {
+            padding: 80px 0 60px 0;
+            background-color: var(--color-white);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .collaborations-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .client-scroll-container {
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+            padding: 20px 0;
+            border: none;
+        }
+        
+        .client-logos {
+            display: flex;
+            animation: scroll-left 30s linear infinite;
+            white-space: nowrap;
+            padding-right: 100%;
+            align-items: center;
+            height: 100px;
+        }
+        
+        .client-logos img {
+            max-height: 50px;
+            width: auto;
+            max-width: 150px;
+            margin: 0 40px;
+            object-fit: contain;
+            opacity: 0.7;
+            filter: grayscale(100%);
+            transition: all 0.5s ease-in-out;
+            flex-shrink: 0;
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 100px 40px 40px;
+        }
+        
+        .footer-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+	    margin-right: 100px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 80px;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-list h4 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-list li:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: left;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            padding-top: 20px;
+        }
+
+        /* ESTILOS ESPECÍFICOS DO DROPDOWN CASE STUDIES */
+        #case-studies-dropdown .section-detail {
+            width: 100%;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .case-study-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 0 40px;
+        }
+
+        .cs-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .cs-column {
+            width: 50%;
+            background-color: var(--color-bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--color-border);
+        }
+        
+        .cs-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Ícones para os boxes dos case studies */
+        .cs-title-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cs-column .icon-pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* Ajuste para altura igual dos mocksafari no caso 1 */
+        .cs-row .cs-column .safari-mock {
+            height: 200px; /* Altura fixa igual para ambos */
+            min-height: 200px;
+        }
+
+        .cs-description {
+            font-size: 14px;
+            color: rgba(15, 15, 15, 0.7);
+            line-height: 1.6;
+        }
+        
+        /* ESTILOS DE ANIMAÇÃO MINIMALISTA (SVG) */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .icon-pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* Estilo para a animação de barras de métricas */
+        .metrics-container {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .metric-line {
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .metric-label {
+            margin-bottom: 4px;
+            color: var(--color-primary);
+        }
+
+        .metric-bar-animated {
+            height: 8px;
+            background-color: rgba(15, 15, 15, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .metric-fill-animated {
+            height: 100%;
+            background-color: var(--color-accent-blue);
+            width: 0;
+            transition: width 1s ease-out;
+            border-radius: 4px;
+        }
+
+        /* NOVOS ESTILOS PARA ABOUT DROPDOWN */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .highlight-box {
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 18px; /* Reduzido */
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent-blue);
+            box-shadow: 0 10px 20px rgba(64, 224, 208, 0.1);
+        }
+        
+        .highlight-value {
+            font-size: 28px; /* Reduzido */
+            font-weight: 700;
+            color: var(--color-accent-blue);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .highlight-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+        
+        .highlight-description {
+            font-size: 13px;
+            color: rgba(15, 15, 15, 0.7);
+            line-height: 1.5;
+        }
+        
+        /* Work Process Flowchart */
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 50px; /* Reduzido */
+            min-height: 50px; /* Reduzido */
+        }
+        
+        .process-step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px; /* Reduzido */
+            height: 32px; /* Reduzido */
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-primary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px; /* Reduzido */
+        }
+        
+        .process-step-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+        
+        .process-step-content p {
+            font-size: 14px;
+            color: rgba(15, 15, 15, 0.7);
+            line-height: 1.6;
+        }
+        
+        .process-connector {
+            position: absolute;
+            left: 16px; /* Ajustado */
+            top: 32px; /* Ajustado */
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--color-accent-blue), var(--color-primary));
+        }
+        
+        .process-step:last-child .process-connector {
+            display: none;
+        }
+        
+        /* Work Experience */
+        .experience-item {
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--color-accent-blue);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .experience-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+        
+        .experience-company {
+            font-size: 14px;
+            color: var(--color-accent-blue);
+            font-weight: 600;
+        }
+        
+        .experience-period {
+            font-size: 12px;
+            color: rgba(15, 15, 15, 0.6);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .experience-metrics {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .metric-badge {
+            background: rgba(64, 224, 208, 0.1);
+            color: var(--color-accent-blue);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(64, 224, 208, 0.3);
+        }
+        
+        .experience-description {
+            font-size: 14px;
+            color: rgba(15, 15, 15, 0.8);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .experience-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .experience-highlights li {
+            padding: 8px 0;
+            color: rgba(15, 15, 15, 0.7);
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .experience-highlights li:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-blue);
+            font-weight: bold;
+        }
+        
+        /* Education */
+        .education-item {
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .education-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+        
+        .education-institution {
+            font-size: 14px;
+            color: var(--color-accent-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .education-period {
+            font-size: 12px;
+            color: rgba(15, 15, 15, 0.6);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        .education-focus {
+            font-size: 14px;
+            color: rgba(15, 15, 15, 0.8);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .education-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .education-highlights li {
+            padding: 6px 0;
+            color: rgba(15, 15, 15, 0.7);
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .education-highlights li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-blue);
+        }
+        
+        /* Tools & Platforms Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; /* Reduzido */
+            margin-top: 20px;
+        }
+        
+        .tools-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-accent-blue);
+        }
+        
+        /* Estilo para coluna de platforms - linha rosa */
+        .tools-column.platforms h4 {
+            border-bottom: 2px solid var(--color-accent-pink);
+        }
+
+        .tools-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tool-tag {
+            background: rgba(15, 15, 15, 0.05);
+            color: var(--color-primary);
+            padding: 6px 12px; /* Reduzido */
+            border-radius: 20px;
+            font-size: 12px; /* Reduzido */
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+        
+        .tool-tag:hover {
+            background: rgba(64, 224, 208, 0.1);
+            border-color: var(--color-accent-blue);
+            transform: translateY(-2px);
+        }
+        
+        .tools-column.platforms .tool-tag:hover {
+            background: rgba(255, 105, 180, 0.1);
+            border-color: var(--color-accent-pink);
+            transform: translateY(-2px);
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; /* Reduzido */
+            margin-top: 20px;
+        }
+        
+        .skills-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+        }
+        
+        .skills-column.hard h4 {
+            border-bottom: 2px solid var(--color-accent-blue);
+        }
+        
+        .skills-column.soft h4 {
+            border-bottom: 2px solid var(--color-accent-pink);
+        }
+        
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: rgba(15, 15, 15, 0.05);
+            color: var(--color-primary);
+            padding: 6px 12px; /* Reduzido */
+            border-radius: 20px;
+            font-size: 12px; /* Reduzido */
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+        
+        .skills-column.hard .skill-tag:hover {
+            background: rgba(64, 224, 208, 0.1);
+            border-color: var(--color-accent-blue);
+            transform: translateY(-2px);
+        }
+        
+        .skills-column.soft .skill-tag:hover {
+            background: rgba(255, 105, 180, 0.1);
+            border-color: var(--color-accent-pink);
+            transform: translateY(-2px);
+        }
+        
+        /* Case Studies Updated */
+        #case-studies-dropdown .section-detail {
+            padding: 20px 40px;
+        }
+        
+        .case-study-content {
+            gap: 30px;
+        }
+        
+        .cs-row {
+            gap: 15px;
+        }
+        
+        .cs-column {
+            padding: 18px;
+        }
+        
+        .cs-title {
+            font-size: 15px;
+        }
+        
+        .cs-description {
+            font-size: 13px;
+        }
+        
+        .safari-mock {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            margin-top: 1rem;
+            height: auto;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .safari-header {
+            background: rgba(0,0,0,0.05);
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--color-border);
+            flex-shrink: 0;
+        }
+        
+        .safari-dots {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .safari-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .safari-dot.red { background: #ff5f57; }
+        .safari-dot.yellow { background: #ffbd2e; }
+        .safari-dot.green { background: #27c93f; }
+        
+        .safari-url {
+            flex: 1;
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: var(--muted-foreground);
+        }
+        
+        .safari-content {
+            background: white;
+            padding: 1rem;
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+            font-size: 11px;
+        }
+        
+        /* Animation Tags */
+        .tag-bracket {
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 0 1px;
+            transition: all 0.3s ease;
+            font-family: monospace;
+        }
+        
+        .tag-bracket.correct {
+            color: #5A9BD4;
+            background-color: #EAF2F8;
+        }
+        
+        .tag-bracket.error {
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            position: relative;
+        }
+        
+        .tag-bracket.fixing {
+            animation: tagPulse 0.8s ease-in-out;
+        }
+        
+        @keyframes tagPulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 155, 212, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 5px rgba(90, 155, 212, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 155, 212, 0); }
+        }
+        
+        .word {
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .word.error {
+            color: #e74c3c;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: #e74c3c;
+        }
+        
+        .word.correct {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+        
+        .typing-cursor {
+            position: absolute;
+            right: -2px;
+            width: 2px;
+            height: 18px;
+            background-color: var(--foreground);
+            animation: blink 0.7s infinite;
+            display: none;
+        }
+        
+        .typing-cursor.visible { display: block; }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .tag-pulse-red {
+            color: hsl(0 70% 50%);
+            background: hsl(0 70% 95%);
+            padding: 1px 4px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .tag-pulse-red.pulsing {
+            animation: errorPulse 1.5s ease-in-out infinite;
+        }
+        
+        .error-text {
+            color: hsl(0 70% 50%);
+            border-bottom: 2px dotted hsl(0 70% 50%);
+            position: relative;
+        }
+        
+        .error-text.pulsing {
+            animation: errorPulse 1.5s ease-in-out infinite;
+        }
+        
+        .corrected-text {
+            color: hsl(210 100% 50%);
+            font-weight: 600;
+        }
+        
+        @keyframes errorPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        /* Chatbot Styles */
+        .chat-message {
+            background: rgba(0,0,0,0.05);
+            padding: 8px;
+            border-radius: 8px;
+            max-width: 80%;
+            margin-bottom: 8px;
+        }
+        
+        .chat-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+        
+        .chat-btn {
+            padding: 4px 8px;
+            background: rgba(227,44,109,0.2);
+            color: var(--accent-pink);
+            border-radius: 9999px;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .chat-btn:hover {
+            background: var(--accent-pink);
+            color: white;
+        }
+        
+        .chat-btn-blue {
+            background: hsl(210 100% 95%);
+            color: hsl(210 100% 50%);
+            border: 1px solid hsl(210 100% 80%);
+        }
+        
+        .chat-btn-blue:hover {
+            background: hsl(210 100% 50%);
+            color: white;
+        }
+        
+        /* Progress Bars */
+        .metrics-bars {
+            margin-top: 0.5rem;
+        }
+        
+        .metrics-bar {
+            margin-bottom: 0.75rem;
+        }
+        
+        .metrics-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metrics-label {
+            color: var(--muted-foreground);
+        }
+        
+        .metrics-value {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+        
+        .metrics-track {
+            width: 100%;
+            height: 12px;
+            background: var(--muted);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        
+        .metrics-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary));
+            border-radius: 9999px;
+            animation: pulse 2s infinite;
+        }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .nav { padding: 0 20px; }
+            .hero-blocks-container { flex-direction: column; height: auto; }
+            .hero-left-block, .hero-right-block { width: 100%; height: auto; padding: 20px; }
+            .hero-left-block { border-right: none; border-bottom: 1px solid var(--color-border); }
+            .hero-title { font-size: 32px; }
+            .hero-subtitle { font-size: 16px; text-align: left; }
+            .about-content-area { flex-direction: column; padding: 20px; }
+            .section-nav { 
+                width: 100%; 
+                border-right: none; 
+                border-bottom: 1px solid var(--color-border); 
+                padding-right: 0; 
+                padding-bottom: 20px;
+                position: relative;
+                top: 0;
+            }
+            .section-detail { 
+                width: 100%; 
+                padding-left: 0; 
+                padding-top: 20px; 
+                max-height: none;
+            }
+            .footer-top { flex-direction: column; gap: 40px; }
+            .footer-links { flex-wrap: wrap; gap: 40px; }
+            .case-study-content { padding: 0 10px; }
+            .cs-row { flex-direction: column; gap: 10px; }
+            .cs-column { width: 70%; }
+            .highlights-grid { grid-template-columns: 1fr; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-links-wrapper-left">
+                <!-- Logo com quebra de linha -->
+                <a href="#" class="logo">
+                    <span class="logo-line1">Ariane</span>
+                    <span class="logo-line2">Lesnyak</span>
+                </a>
+                
+                <div class="nav-links-wrapper-sub-left">
+                    <!-- Link: About (Dropdown) -->
+                    <div class="nav-dd" onclick="toggleDropdown('about')">
+                        <div class="nav-link-2">
+                            <div>About</div>
+                            <!-- SVG Seta -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none" class="nav-link-icon">
+                                <g clip-path="url(#clip0_1304_32589)">
+                                    <path d="M10.0875 9.36739V0.93927H11.1187V10.1109H10.1109V11.1188H0.939841L0.939255 10.0869H9.36796L0.918747 1.63829V0.918762H1.63886L10.0875 9.36739Z" fill="currentColor"></path>
+                                </g>
+                                <defs><clipPath id="clip0_1304_32589"><rect width="12" height="12" fill="white"/></clipPath></defs>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Link: Collaborations (Âncora) -->
+                    <a href="#collaborations" class="nav--link">Collaborations</a>
+                    
+                    <!-- Link: Case Studies (Dropdown - MANTIDO COMO DROPDOWN) -->
+                    <div class="nav-dd" onclick="toggleDropdown('case-studies')">
+                        <div class="nav-link-2">
+                            <div>Case Studies</div>
+                            <!-- SVG Seta -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none" class="nav-link-icon">
+                                <g clip-path="url(#clip0_1304_32589_2)">
+                                    <path d="M10.0875 9.36739V0.93927H11.1187V10.1109H10.1109V11.1188H0.939841L0.939255 10.0869H9.36796L0.918747 1.63829V0.918762H1.63886L10.0875 9.36739Z" fill="currentColor"></path>
+                                </g>
+                                <defs><clipPath id="clip0_1304_32589_2"><rect width="12" height="12" fill="white"/></clipPath></defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-links-wrapper right">
+                <!-- Botão "Contact me" (Fundo #dcf58f) -->
+                <a href="#contact" class="nav--button">
+                    <!-- SVG Seta do botão -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none" class="nav-link-icon">
+                        <g clip-path="url(#clip0_1304_32600)">
+                            <path d="M9.3674 1.95002L0.93927 1.95002L0.93927 0.918775L10.111 0.918774L10.111 1.92659L11.1188 1.92659L11.1188 11.0977L10.0869 11.0983L10.0869 2.66956L1.63829 11.1188L0.918762 11.1188L0.918762 10.3987L9.3674 1.95002Z" fill="currentColor"></path>
+                        </g>
+                        <defs><clipPath id="clip0_1304_32600"><rect width="12" height="12" fill="white"/></clipPath></defs>
+                    </svg>
+                    <div>GET IN TOUCH</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DROPDOWN ABOUT -->
+    <div class="dropdown-menu" id="about-dropdown">
+        <div class="about-content-area">
+            <div class="section-nav">
+                <h3 class="section-title" data-section="summary">Professional Summary</h3>
+                <h3 class="section-title" data-section="highlights">Highlights</h3>
+                <h3 class="section-title" data-section="process">Work Process</h3>
+                <h3 class="section-title" data-section="experience">Work Experience</h3>
+                <h3 class="section-title" data-section="education">Education</h3>
+                <h3 class="section-title" data-section="tools">Tools and Platforms</h3>
+                <h3 class="section-title" data-section="skills">Soft and Hard Skills</h3>
+                <button class="close-btn" onclick="closeDropdown('about')">
+                    <span>Close</span>
+                    <div class="close-icon"></div>
+                </button>
+            </div>
+            <div class="section-detail" id="detail-view">
+                <h2>Career Analysis and Strategy (PT-BR)</h2>
+                <p>Hover over a title on the left to see the content and positioning strategy focused on the AI Trainer role.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DROPDOWN CASE STUDIES - NOVO CONTEÚDO E ESTRUTURA -->
+    <div class="dropdown-menu" id="case-studies-dropdown">
+        <div class="about-content-area" style="width: 100%;">
+            <div class="section-nav">
+                <!-- Títulos para navegação no modal -->
+                <h3 class="section-title" data-case="case1">Case 1: UI String Localization & Tag Consistency</h3>
+                <h3 class="section-title" data-case="case2">Case 2: MTPE Subtitle Quality Assurance</h3>
+                <h3 class="section-title" data-case="case3">Case 3: AI Chatbot Content Optimization</h3>
+                <button class="close-btn" onclick="closeDropdown('case-studies')">
+                    <span>Close</span>
+                    <div class="close-icon"></div>
+                </button>
+            </div>
+            <div class="section-detail" id="case-detail-view">
+                <h2>Linguistic Architecture: Case Studies</h2>
+                <p>Select a case study on the left to see the detailed project flow and quantifiable metrics.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION - NOVA ESTRUTURA DE ALINHAMENTO -->
+    <section id="hero">
+        <!-- Animação de Fundo (Map & Data Flow) -->
+        <div id="animation-overlay">
+            <svg width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" style="transform: scale(1.1);">
+                <path id="world-map-outline" 
+                      d="M400 300 L600 300 L700 450 L650 500 L850 600 L1100 500 L1200 400 L1400 400 L1500 550 L1400 650 L1200 700 L900 850 L600 900 L400 800 Z M500 800 L450 750 L400 700 L500 650 L600 700 Z M1300 450 L1250 500 L1300 550 L1350 500 L1300 450 Z"
+                      fill="none" stroke="var(--color-accent-brown)" stroke-width="1.5" opacity="0.4"></path>
+                
+                <path id="flow-path-br" d="M500 700 C750 850, 1150 650, 1400 500" fill="none" stroke="none"/>
+            </svg>
+        </div>
+
+        <!-- Blocos de Conteúdo Alinhados à Base (100% largura) -->
+        <div class="hero-blocks-container">
+            <!-- Bloco Esquerdo (Opaco, Alinhado à Esquerda) -->
+            <div class="hero-left-block">
+                <h1 class="hero-title">Portuguese Language Specialist | AI Trainer</h1>
+            </div>
+            
+            <!-- Bloco Direito (Gradiente para Branco, Alinhado à Direita) -->
+            <div class="hero-right-block">
+                <p class="hero-subtitle">
+                    Architecting language knowledge for advanced AI systems in Brazilian Portuguese.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLABORATIONS SECTION - SOMENTE CARROSSEL -->
+    <section id="collaborations">
+        <div class="collaborations-container">
+            <!-- Rolagem contínua -->
+            <div class="client-scroll-container">
+                <div class="client-logos">
+                    <!-- Logos dos Parceiros -->
+                    <img src="uploaded:acclaro_logo.jpeg-735be9dd-b3fe-4264-a0fa-7f3ec4c0f21d" alt="Acclaro" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Acclaro'" loading="lazy">
+                    <img src="uploaded:itcglobal.png-7c2e2238-e641-4965-aca5-066dc5e26a1b" alt="ITC Global" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=ITC+Global'" loading="lazy">
+                    <img src="uploaded:iyuno logo.webp-a41f7cfa-4855-44fd-8f30-fadcbfc1274a" alt="Iyuno" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Iyuno'" loading="lazy">
+                    <img src="uploaded:claro logo.jpeg-968c74db-851e-49f6-ae0e-ac790498ae31" alt="Claro" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Claro'" loading="lazy">
+                    <img src="uploaded:Logo_TABULEIRO-branco_alta.webp-e1e7bd91-ae46-4ff0-857d-86f00eddc2a8" alt="Tabuleiro" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Tabuleiro'" loading="lazy">
+                    <img src="uploaded:saga_logo.webp-aa63b872-4114-40eb-9009-85c1fde29767" alt="Saga" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Saga'" loading="lazy">
+                    <img src="uploaded:tikinetlogo3.png-c30ffd8b-b35e-44c9-b22e-bc08a0f3728f" alt="Tikinet" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Tikinet'" loading="lazy">
+                    <img src="uploaded:moshimedialogo_fundo.png-81ea6724-4b7d-4b63-a601-4e30257911b2" alt="Moshi Media" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Moshi+Media'" loading="lazy">
+                    <img src="uploaded:logo-vsivoxmundi.png-b2c8bbc5-7bc2-4e37-ba61-e1aa86099909" alt="VSI Vox Mundi" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=VSI+Vox+Mundi'" loading="lazy">
+
+                    <!-- Repetição para o loop contínuo -->
+                    <img src="uploaded:acclaro_logo.jpeg-735be9dd-b3fe-4264-a0fa-7f3ec4c0f21d" alt="Acclaro" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Acclaro'" loading="lazy">
+                    <img src="uploaded:itcglobal.png-7c2e2238-e641-4965-aca5-066dc5e26a1b" alt="ITC Global" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=ITC+Global'" loading="lazy">
+                    <img src="uploaded:iyuno logo.webp-a41f7cfa-4855-44fd-8f30-fadcbfc1274a" alt="Iyuno" onerror="this.src='https://placehold.co/150x50/F5F5F5/666666?text=Iyuno'" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-top">
+                <!-- Logo maior no footer -->
+                <p style="color: white; text-decoration: none; font-size: 20px; font-weight: 500;">Ariane Lesnyak</p>
+                <div class="footer-links">
+                    <div class="footer-list">
+                        <h4>Industries</h4>
+                        <ul>
+                            <li>AI Technology</li>
+                            <li>Localization</li>
+                            <li>Ed-Tech</li>
+                            <li>Communication</li>
+                            <li>E-commerce</li>
+                        </ul>
+                    </div>
+                    <div class="footer-list">
+                        <h4>Solutions</h4>
+                        <ul>
+                            <li>AI Model Training</li>
+                            <li>Linguistic QA</li>
+                            <li>Content Strategy</li>
+                            <li>Prompt Design</li>
+                            <li>Translation & Subtitling</li>
+                        </ul>
+                    </div>
+                    <div class="footer-list">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/arianelesnyak/" style="color: white;">LinkedIn</a></li>
+                            <li><a href="mailto:ariane.etimo@gmail.com"  style="color: white;">E-mail</a></li>
+                            <li><a href="https://wa.me/5511943882913"  style="color: white;">Phone</a></li>
+                            <li><a href="xxx"  style="color: white;">CV</a></li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Ariane Lesnyak | Inspired by © 2025 Invisible Technologies Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // CONTEÚDO DETALHADO PARA O DROPDOWN ABOUT
+        const aboutContents = {
+            summary: `
+                <h3>Professional Summary</h3><br>
+                <p>Linguistic and <strong>Content Strategy Specialist</strong>, focused on enhancing the precision and naturalness of Brazilian Portuguese in AI models.</p> <br> <p>Combines a surgical eye for grammatical details (Syntax, Morphology) with a deep understanding of sociolinguistics to document failures and 'teach' the model, acting as a <strong>Linguistic Knowledge Architect for AI Systems</strong>.</p>
+             <br>   <p>With 10+ years of experience in translation, localization, MTPE, and linguistic quality assurance, <strong>I've refined 1M+ words of AI-generated content</strong>, achieving 95%+ client satisfaction and reducing linguistic errors by 70% through systematic QA processes.</p>
+            `,
+            
+            highlights: `
+                <h3>Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-box">
+                        <div class="highlight-value">1M+</div>
+                        <div class="highlight-label">Words Refined</div>
+                        <div class="highlight-description">AI-generated content transformed into natural, culturally-authentic Portuguese</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-value">70%</div>
+                        <div class="highlight-label">Error Reduction</div>
+                        <div class="highlight-description">Linguistic issues eliminated through systematic QA and error tracking</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-value">95%+</div>
+                        <div class="highlight-label">Client Satisfaction</div>
+                        <div class="highlight-description">Consistent quality delivery across 100+ AI training projects</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-value">10+</div>
+                        <div class="highlight-label">Years Experience</div>
+                        <div class="highlight-description">Specialized in EN→PT-BR translation, localization, and AI content refinement</div>
+                    </div>
+                </div>
+            `,
+            
+            process: `
+                <h3>Work Process</h3>
+                <p>My analytical process focuses on reverse prompt engineering and systematic error documentation:</p>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <div class="process-step-content">
+                            <h4>Output Analysis</h4>
+                            <p>Converse with the model and check for accuracy, coherence, and tone. Identify semantic, syntactic, and cultural discrepancies.</p>
+                        </div>
+                        <div class="process-connector"></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <div class="process-step-content">
+                            <h4>Failure Identification</h4>
+                            <p>Diagnose the error type and capture the 'Error Trace' for reproducible documentation. Focus on verb conjugation, noun-adjective agreement, and colloquial expressions.</p>
+                        </div>
+                        <div class="process-connector"></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <div class="process-step-content">
+                            <h4>Correction Proposal</h4>
+                            <p>Apply linguistic expertise to rewrite text, ensuring clarity and precision. Maintain cultural appropriateness while preserving original intent.</p>
+                        </div>
+                        <div class="process-connector"></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <div class="process-step-content">
+                            <h4>Training & Documentation</h4>
+                            <p>Create high-quality examples to reinforce learning. Suggest improvements in evaluation metrics and prompt engineering strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            
+            experience: `
+                <h3>Work Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">AI Content Rewriter & Linguistic QA Specialist</div>
+                            <div class="experience-company">Freelance | Multiple International Clients</div>
+                        </div>
+                        <div class="experience-period">Mar 2015 – Present</div>
+                    </div>
+                    <div class="experience-metrics">
+                        <span class="metric-badge">95%+ Satisfaction</span>
+                        <span class="metric-badge">70% Error Reduction</span>
+                        <span class="metric-badge">100+ Projects</span>
+                    </div>
+                    <div class="experience-description">
+                        Specialized in transforming AI-generated content into natural Brazilian Portuguese through expert rewriting, linguistic QA, and human-centered editing.
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Rewrote and refined 1M+ words of AI-generated content in PT-BR, ensuring natural readability and cultural authenticity</li>
+                        <li>Enhanced coherence and contextual relevance of machine-translated content, improving comprehension by 85%</li>
+                        <li>Evaluated and corrected AI outputs for accuracy, grammar, syntax, and cultural appropriateness</li>
+                        <li>Humanized AI-generated text while preserving intended meaning, achieving 95% client satisfaction rate</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Content Governance & AI Training Specialist</div>
+                            <div class="experience-company">TW' Content Business | Claro Telecom</div>
+                        </div>
+                        <div class="experience-period">Oct 2020 – Present</div>
+                    </div>
+                    <div class="experience-metrics">
+                        <span class="metric-badge">35% Engagement Increase</span>
+                        <span class="metric-badge">70% Delivery Error Reduction</span>
+                        <span class="metric-badge">30,000+ Users</span>
+                    </div>
+                    <div class="experience-description">
+                        Created and refined conversational datasets to enhance AI chatbot responses and improve model comprehension.
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Created and refined conversational datasets to enhance AI chatbot responses, improving engagement by 35%</li>
+                        <li>Reviewed and corrected 10,000+ AI-generated outputs, ensuring grammatical accuracy and cultural relevance</li>
+                        <li>Developed comprehensive style guides and linguistic frameworks maintaining 95% content consistency</li>
+                        <li>Proofread and edited AI-generated content, reducing delivery errors by 70% through systematic QA</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Translator & Editorial Specialist</div>
+                            <div class="experience-company">Tikinet Edição Ltda</div>
+                        </div>
+                        <div class="experience-period">Feb 2016 – Feb 2018</div>
+                    </div>
+                    <div class="experience-metrics">
+                        <span class="metric-badge">98% Accuracy</span>
+                        <span class="metric-badge">500+ Papers</span>
+                        <span class="metric-badge">25% Turnaround Reduction</span>
+                    </div>
+                    <div class="experience-description">
+                        Translated and edited academic papers and technical documents with exceptional attention to linguistic detail.
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Translated and edited 500+ academic papers and technical documents with 98% accuracy rate</li>
+                        <li>Applied multiple style standards (APA, ABNT, Chicago) across 20+ international publications</li>
+                        <li>Proofread and refined 100+ scholarly manuscripts, ensuring clarity and cultural appropriateness</li>
+                        <li>Awarded "Employee of the Year" for streamlining QA processes and reducing turnaround time by 25%</li>
+                    </ul>
+                </div>
+            `,
+            
+            education: `
+                <h3>Education</h3>
+                <div class="education-item">
+                    <div class="education-title">BA in EN & PT-BR Linguistics</div>
+                    <div class="education-institution">University of São Paulo (USP)</div>
+                    <div class="education-period">2015 – 2019</div>
+                    <div class="education-focus">
+                        <strong>Focus:</strong> Linguistics, Translation, Cultural Studies, Creole Language Analysis
+                    </div>
+                    <p class="education-description">
+                        My undergraduate research focused on linguistic corpus analysis and Creole language structures, providing a strong foundation in comparative linguistics and language evolution patterns. This analytical background directly informs my approach to AI training, where I apply systematic linguistic analysis to identify and correct failure modes in language models.
+                    </p>
+                    <ul class="education-highlights">
+                        <li>Specialized in linguistic corpus analysis and Creole language structures</li>
+                        <li>Developed analytical skills for comparative linguistics and language evolution patterns</li>
+                        <li>Applied systematic linguistic analysis to identify language model failure modes</li>
+                        <li>Built foundation for understanding phonetics, morphology, syntax, and sociolinguistics</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-title">Associate Degree in Information Technology</div>
+                    <div class="education-institution">Marechal Rondon School</div>
+                    <div class="education-period">2007 – 2009</div>
+                    <div class="education-focus">
+                        <strong>Focus:</strong> Data Management, Basic Programming, Technical Systems
+                    </div>
+                    <p class="education-description">
+                        This technical foundation enables me to understand data structures, annotation formats, and the technical requirements of AI training platforms, bridging the gap between linguistic expertise and technical implementation.
+                    </p>
+                    <ul class="education-highlights">
+                        <li>Data structures and algorithms fundamentals</li>
+                        <li>Basic programming concepts and logic</li>
+                        <li>Technical documentation and system analysis</li>
+                        <li>Database management principles</li>
+                    </ul>
+                </div>
+            `,
+            
+            tools: `
+                <h3>Tools and Platforms</h3>
+                <div class="tools-grid">
+                    <div class="tools-column">
+                        <h4>Tools</h4>
+                        <div class="tools-tags">
+                            <span class="tool-tag">Trados Studio</span>
+                            <span class="tool-tag">memoQ</span>
+                            <span class="tool-tag">Smartcat</span>
+                            <span class="tool-tag">Xbench</span>
+                            <span class="tool-tag">Verifika</span>
+                            <span class="tool-tag">Subtitle Edit</span>
+                            <span class="tool-tag">EZTitles</span>
+                            <span class="tool-tag">Aegisub</span>
+                            <span class="tool-tag">JSON</span>
+                            <span class="tool-tag">XML</span>
+                            <span class="tool-tag">HTML</span>
+                        </div>
+                    </div>
+                    <div class="tools-column platforms">
+                        <h4>Platforms</h4>
+                        <div class="tools-tags">
+                            <span class="tool-tag">Custom MT Engines</span>
+                            <span class="tool-tag">Prompt Databases</span>
+                            <span class="tool-tag">TermBase</span>
+                            <span class="tool-tag">AI Training Platforms</span>
+                            <span class="tool-tag">Content Management Systems</span>
+                            <span class="tool-tag">QA Automation Tools</span>
+                            <span class="tool-tag">Data Annotation Platforms</span>
+                            <span class="tool-tag">Collaboration Tools</span>
+                            <span class="tool-tag">Version Control Systems</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            
+            skills: `
+                <h3>Soft and Hard Skills</h3>
+                <div class="skills-grid">
+                    <div class="skills-column hard">
+                        <h4>Hard Skills</h4>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Phonetics & Morphology</span>
+                            <span class="skill-tag">Syntax & Semantics</span>
+                            <span class="skill-tag">Pragmatics</span>
+                            <span class="skill-tag">Sociolinguistics</span>
+                            <span class="skill-tag">Linguistic QA</span>
+                            <span class="skill-tag">Content Structuring</span>
+                            <span class="skill-tag">Prompt Design</span>
+                            <span class="skill-tag">EN→PT-BR Translation</span>
+                            <span class="skill-tag">Cultural Adaptation</span>
+                            <span class="skill-tag">Data Annotation</span>
+                            <span class="skill-tag">Error Trace Documentation</span>
+                        </div>
+                    </div>
+                    <div class="skills-column soft">
+                        <h4>Soft Skills</h4>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Metacognition</span>
+                            <span class="skill-tag">Clear Communication</span>
+                            <span class="skill-tag">Attention to Detail</span>
+                            <span class="skill-tag">Analytical Reasoning</span>
+                            <span class="skill-tag">Complex Problem Solving</span>
+                            <span class="skill-tag">Systematic Thinking</span>
+                            <span class="skill-tag">Adaptability</span>
+                            <span class="skill-tag">Cross-functional Collaboration</span>
+                            <span class="skill-tag">Deadline-Oriented</span>
+                            <span class="skill-tag">Self-Motivated</span>
+                            <span class="skill-tag">Consistent Documentation</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+        };
+
+        // CONTEÚDO DETALHADO PARA O DROPDOWN CASE STUDIES (Atualizado com casos do index.html)
+        const caseStudyContent = {
+            case1: {
+                title: "Case 1: UI String Localization & Tag Consistency",
+                challenge: "Inconsistent tags and placeholders across UI strings for a global SaaS family, causing rendering errors and poor user experience.",
+                solution: "Rewrote 100k+ strings, normalized tags and placeholders, produced style guides and QA checks to ensure consistency.",
+                before: "Example with mismatched placeholders and incorrect tags:<br><span class='tag-pulse-red'>&lt;/179&gt;</span>Para corrigir este problema de conformidade, vá para <span class='tag-pulse-red'>{1}</span>Configurações<span class='tag-pulse-red'>{3}</span> &gt; <span class='tag-pulse-red'>{2}</span><span class='word error'>Exportação</span><span class='tag-pulse-red'>{4}</span> e selecione a opção <span class='tag-pulse-red'>{5}</span>Conformidade Completa<span class='tag-pulse-red'>{7}</span>.",
+                after: "Standardized output with corrected tags:<br><span class='tag-bracket correct'>&lt;/146&gt;</span>Para corrigir este problema de conformidade<span class='tag-bracket correct'>&lt;/178&gt;</span>, vá para <span class='tag-bracket correct'>{1}</span>Configurações<span class='tag-bracket correct'>{2}</span> &gt; <span class='tag-bracket correct'>{3}</span><span class='word correct'>Exportar</span><span class='tag-bracket correct'>{4}</span> e selecione a opção <span class='tag-bracket correct'>{5}</span>Conformidade Completa<span class='tag-bracket correct'>{6}</span>.",
+                results: "Implemented comprehensive LQA that reduced tag-related errors by 85%, improving user experience across 12 language variants. Increased translation consistency by 60% and reduced QA time by 45%.",
+                metrics: [
+                    { label: "Error Reduction", value: 85 },
+                    { label: "Consistency Increase", value: 60 },
+                    { label: "QA Time Reduction", value: 45 }
+                ]
+            },
+            case2: {
+                title: "Case 2: MTPE Subtitle Quality Assurance",
+                challenge: "High-volume subtitle MTPE for streaming catalog with mixed genres and cultural nuances, leading to timing mismatches and annotation errors.",
+                solution: "Built genre-aware MTPE pipelines, quality gates, and cultural adaptations for Brazilian Portuguese, improving subtitle accuracy and timing.",
+                before: "00:10:14.023 → 00:10:20.250<br>{A: N/A || L: English || T: Angry|| O: an8} [sub: João || action: knoks door || cap: John knocks door ||P] Why do you speak to me like this?",
+                after: "00:10:14.023 → 00:10:20.250<br>{A: Joe Doe || L: English || T: Angry || O: an8} [sub: John || action: knocks on door] Why do you speak to me like this?",
+                results: "Reduced review time by 50% while maintaining 95%+ quality scores across drama, comedy, and documentary genres. Improved subtitle accuracy by 75% and reduced cultural adaptation errors by 65%.",
+                metrics: [
+                    { label: "Quality Score", value: 95 },
+                    { label: "Review Time", value: 50 },
+                    { label: "Accuracy Improvement", value: 75 }
+                ]
+            },
+            case3: {
+                title: "Case 3: AI Chatbot Content Optimization",
+                challenge: "Fragmented knowledge base content causing poor chatbot responses and user confusion in customer support scenarios.",
+                solution: "Restructured content architecture, created conversational flows, and implemented decision trees for improved chatbot interactions.",
+                before: "Users navigating multiple articles to find answers, requiring 5+ steps to resolve simple queries.",
+                after: "Interactive chatbot with guided decision paths providing immediate, accurate responses in 1-3 steps.",
+                results: "Increased first-contact resolution by 40% and reduced average handling time by 35%. Improved user satisfaction by 50% and reduced support tickets by 60% through better content organization.",
+                metrics: [
+                    { label: "Resolution Rate", value: 40 },
+                    { label: "Handling Time", value: 35 },
+                    { label: "Support Tickets", value: 60 }
+                ]
+            }
+        };
+
+        // FUNÇÕES PARA CONTROLE DOS DROPDOWNS
+        function toggleDropdown(type) {
+            const aboutDropdown = document.getElementById('about-dropdown');
+            const caseDropdown = document.getElementById('case-studies-dropdown');
+            
+            if (type === 'about') {
+                const isVisible = aboutDropdown.style.display === 'flex';
+                aboutDropdown.style.display = isVisible ? 'none' : 'flex';
+                caseDropdown.style.display = 'none';
+                // Reset active state
+                document.querySelectorAll('#about-dropdown .section-title').forEach(title => {
+                    title.classList.remove('active');
+                });
+            } else if (type === 'case-studies') {
+                const isVisible = caseDropdown.style.display === 'flex';
+                caseDropdown.style.display = isVisible ? 'none' : 'flex';
+                aboutDropdown.style.display = 'none';
+                // Reset active state
+                document.querySelectorAll('#case-studies-dropdown .section-title').forEach(title => {
+                    title.classList.remove('active');
+                });
+                // Garante que o primeiro caso seja carregado quando o modal abrir
+                if (!isVisible) {
+                    loadCaseStudy('case1'); 
+                }
+            }
+        }
+
+        function closeDropdown(type) {
+            if (type === 'about') {
+                document.getElementById('about-dropdown').style.display = 'none';
+            } else if (type === 'case-studies') {
+                document.getElementById('case-studies-dropdown').style.display = 'none';
+            }
+        }
+
+        // FUNÇÃO PARA CARREGAR O CONTEÚDO DO CASE STUDY
+        function loadCaseStudy(key) {
+            const data = caseStudyContent[key];
+            if (!data) return;
+
+            const detailView = document.getElementById('case-detail-view');
+            
+            // Estrutura HTML atualizada com ícones
+            detailView.innerHTML = `
+                <h2>${data.title}</h2>
+                <div class="case-study-content">
+                    
+                    <!-- Linha 1: Challenge | Solution -->
+                    <div class="cs-row">
+                        <div class="cs-column">
+                            <div class="cs-title">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Challenge
+                            </div>
+                            <p class="cs-description">${data.challenge}</p>
+                        </div>
+                        <div class="cs-column">
+                            <div class="cs-title">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 14.5l5-5"/></svg>
+                                Solution
+                            </div>
+                            <p class="cs-description">${data.solution}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Linha 2: Before | After -->
+                    <div class="cs-row">
+                        <div class="cs-column">
+                            <div class="cs-title cs-title-with-icon">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                                Before (Initial Error State)
+                            </div>
+                            <div class="cs-description" style="min-height: 100px; border: 1px dashed var(--color-accent-pink); border-radius: 4px; padding: 10px; background-color: rgba(255, 105, 180, 0.05);">
+                                ${key === 'case1' ? `
+                                    <div class="safari-mock">
+                                        <div class="safari-header">
+                                            <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                                            <div class="safari-url">software-suite.com/dev</div>
+                                        </div>
+                                        <div class="safari-content">
+                                            <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">TARGET OUTPUT (PT-BR) WITH ERRORS:</div>
+                                            <div style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; position: relative; font-family: monospace; font-size: 10px;">
+                                                <span id="case1-tag2-before" class="tag-bracket error">&lt;/179&gt;</span>Para corrigir este problema de conformidade, vá para <span id="case1-tag3-before" class="tag-bracket error">{1}</span>Configurações<span id="case1-tag4-before" class="tag-bracket error">{3}</span> &gt; <span id="case1-tag5-before" class="tag-bracket error">{2}</span><span id="case1-word1-before" class="word error">Exportação</span><span id="case1-tag6-before" class="tag-bracket error">{4}</span> e selecione a opção <span id="case1-tag7-before" class="tag-bracket error">{5}</span>Conformidade Completa<span id="case1-tag8-before" class="tag-bracket error">{7}</span>.
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : key === 'case2' ? `
+                                    <div style="font-family: 'Courier New', monospace; font-size: 10px; line-height: 1.4;">
+                                        00:10:14.023 → 00:10:20.250<br>
+                                        <span class="error-text" id="case2-error1">{A: N/A</span> || L: English || T: <span class="error-text" id="case2-error2">Angry||</span> O: an8} [sub: <span class="error-text" id="case2-error3">João</span> || action: <span class="error-text" id="case2-error4">knoks door</span> || cap: John knocks door <span class="error-text" id="case2-error5">||P]</span><br>
+                                        Why do you speak to me like this?
+                                    </div>
+                                ` : `
+                                    <div style="font-size: 12px; line-height: 1.6;">
+                                        Users navigating multiple articles to find answers:<br>
+                                        1. Navigate to 'Client Procedures' section...<br>
+                                        2. Find the link to policy renewals...<br>
+                                        3. Search across different articles...<br>
+                                        4. Check 'Annual Review' subsection...<br>
+                                        5. Verify with legal department...
+                                    </div>
+                                `}
+                            </div>
+                        </div>
+                        <div class="cs-column">
+                            <div class="cs-title cs-title-with-icon">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                                After (Optimized State)
+                            </div>
+                            <div class="cs-description" style="min-height: 100px; border: 1px dashed var(--color-accent-blue); border-radius: 4px; padding: 10px; background-color: rgba(64, 224, 208, 0.05);">
+                                ${key === 'case1' ? `
+                                    <div class="safari-mock">
+                                        <div class="safari-header">
+                                            <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                                            <div class="safari-url">software-suite.com/i18n-dashboard</div>
+                                        </div>
+                                        <div class="safari-content">
+                                            <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">CORRECTED OUTPUT (PT-BR):</div>
+                                            <div id="case1-animation-container" style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; position: relative; font-family: monospace; font-size: 10px;">
+                                                <span class="tag-bracket correct" id="case1-tag1-after">&lt;/146&gt;</span>Para corrigir este problema de conformidade<span class="tag-bracket error" id="case1-tag2-after">&lt;/179&gt;</span>, vá para <span class="tag-bracket correct" id="case1-tag3-after">{1}</span>Configurações<span class="tag-bracket error" id="case1-tag4-after">{3}</span> &gt; <span class="tag-bracket error" id="case1-tag5-after">{2}</span><span class="word error" id="case1-word1-after">Exportação</span><span class="tag-bracket correct" id="case1-tag6-after">{4}</span> e selecione a opção <span class="tag-bracket correct" id="case1-tag7-after">{5}</span>Conformidade Completa<span class="tag-bracket error" id="case1-tag8-after">{7}</span>.
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : key === 'case2' ? `
+                                    <div style="font-family: 'Courier New', monospace; font-size: 10px; line-height: 1.4;">
+                                        00:10:14.023 → 00:10:20.250<br>
+                                        <span class="corrected-text" id="case2-correct1">{A: Joe Doe</span> || L: English || T: <span class="corrected-text" id="case2-correct2">Angry ||</span> O: an8} [sub: <span class="corrected-text" id="case2-correct3">John</span> || action: <span class="corrected-text" id="case2-correct4">knocks on door</span>]<br>
+                                        Why do you speak to me like this?
+                                    </div>
+                                ` : `
+                                    <div id="case3-chatbot" style="min-height: 120px;">
+                                        <div class="chat-message">
+                                            <span style="color: var(--muted-foreground);">What are you looking for?</span>
+                                        </div>
+                                        <div class="chat-buttons">
+                                            <button class="chat-btn" onclick="chatStep(2, 'Policy')">Policy</button>
+                                            <button class="chat-btn" onclick="chatStep(2, 'Annual Review')">Annual Review</button>
+                                        </div>
+                                    </div>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Linha 3: Results | Metrics -->
+                    <div class="cs-row">
+                        <div class="cs-column">
+                            <div class="cs-title">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                                Results
+                            </div>
+                            <p class="cs-description">${data.results}</p>
+                        </div>
+                        <div class="cs-column">
+                            <div class="cs-title cs-title-with-icon">
+                                <svg class="icon-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                                Metrics
+                            </div>
+                            <div class="metrics-container" id="metrics-container-${key}">
+                                <!-- Barras animadas serão inseridas aqui pelo JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+            
+            // Inicia a animação das barras de métricas
+            setTimeout(() => {
+                const metricsContainer = document.getElementById(`metrics-container-${key}`);
+                metricsContainer.innerHTML = '';
+                data.metrics.forEach(metric => {
+                    const barHtml = `
+                        <div class="metric-line">
+                            <span class="metric-label">${metric.label}: +${metric.value}%</span>
+                            <div class="metric-bar-animated">
+                                <div class="metric-fill-animated" style="width: ${metric.value}%;"></div>
+                            </div>
+                        </div>
+                    `;
+                    metricsContainer.insertAdjacentHTML('beforeend', barHtml);
+                });
+            }, 100);
+            
+            // Inicia animações específicas para cada caso
+            if (key === 'case1') {
+                setTimeout(animateCase1Correction, 500);
+            } else if (key === 'case2') {
+                setTimeout(animateCase2Correction, 500);
+            }
+        }
+
+        // EVENT LISTENERS
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configurar eventos para About dropdown
+            document.querySelectorAll('#about-dropdown .section-title').forEach(title => {
+                title.addEventListener('mouseover', function() {
+                    const sectionKey = this.getAttribute('data-section');
+                    document.querySelectorAll('#about-dropdown .section-title').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('detail-view').innerHTML = aboutContents[sectionKey] || "<p>Section content not defined.</p>";
+                });
+            });
+
+            // Configurar eventos para Case Studies dropdown
+            document.querySelectorAll('#case-studies-dropdown .section-title').forEach(title => {
+                title.addEventListener('mouseover', function() {
+                    const caseKey = this.getAttribute('data-case');
+                    document.querySelectorAll('#case-studies-dropdown .section-title').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    loadCaseStudy(caseKey);
+                });
+            });
+
+            // Fechar dropdowns com ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape") {
+                    closeDropdown('about');
+                    closeDropdown('case-studies');
+                }
+            });
+
+            // ANIMAÇÃO DE FLUXO DE TOKENS
+            const svg = document.querySelector('#animation-overlay svg');
+            const flowPath = document.getElementById('flow-path-br');
+            
+            if (svg && flowPath) {
+                const numTokens = 20;
+                const tokenColors = ['var(--color-accent-pink)', 'var(--color-accent-blue)', '#9ACD32'];
+                
+                for (let i = 0; i < numTokens; i++) {
+                    const newToken = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    
+                    newToken.setAttribute('r', '4');
+                    newToken.setAttribute('fill', tokenColors[i % tokenColors.length]);
+                    newToken.setAttribute('opacity', '0.9');
+
+                    const animateMotion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                    animateMotion.setAttribute('dur', '7s');
+                    animateMotion.setAttribute('repeatCount', 'indefinite');
+                    animateMotion.setAttribute('rotate', 'auto');
+                    animateMotion.setAttribute('begin', `${i * 0.35}s`);
+
+                    const mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+                    mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#flow-path-br');
+                    animateMotion.appendChild(mpath);
+                    
+                    newToken.appendChild(animateMotion);
+                    svg.appendChild(newToken);
+                }
+            }
+            
+            // Configurar o primeiro conteúdo
+            document.querySelector('#about-dropdown .section-title').classList.add('active');
+            document.getElementById('detail-view').innerHTML = aboutContents.summary;
+        });
+
+        // Suavizar scroll para âncoras (incluindo nav offset)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 72, 
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ANIMAÇÕES PARA CASE STUDIES
+        function animateCase1Correction() {
+            const errors = [
+                { id: 'case1-tag2-after', current: '&lt;/179&gt;', correct: '&lt;/178&gt;', type: 'tag' },
+                { id: 'case1-tag4-after', current: '{3}', correct: '{2}', type: 'tag' },
+                { id: 'case1-tag5-after', current: '{2}', correct: '{3}', type: 'tag' },
+                { id: 'case1-word1-after', current: 'Exportação', correct: 'Exportar', type: 'word' },
+                { id: 'case1-tag8-after', current: '{7}', correct: '{6}', type: 'tag' }
+            ];
+            
+            let currentErrorIndex = 0;
+            let isFixing = false;
+            const typingSpeed = 100;
+            const pauseBetweenErrors = 800;
+            
+            function startAnimation() {
+                if (isFixing || currentErrorIndex >= errors.length) return;
+                
+                const error = errors[currentErrorIndex];
+                const element = document.getElementById(error.id);
+                
+                if (!element) {
+                    moveToNextError();
+                    return;
+                }
+
+                isFixing = true;
+                element.classList.add('fixing');
+                
+                if (error.type === 'word') {
+                    fixWord(element, error);
+                } else {
+                    fixTag(element, error);
+                }
+            }
+
+            function fixTag(element, error) {
+                let currentText = error.current;
+                let index = currentText.length - 1;
+                
+                function deleteCharacter() {
+                    if (index > 0) {
+                        currentText = currentText.substring(0, index);
+                        element.textContent = currentText;
+                        index--;
+                        setTimeout(deleteCharacter, typingSpeed * 1.5);
+                    } else {
+                        typeCorrectText(element, error);
+                    }
+                }
+                
+                deleteCharacter();
+            }
+
+            function fixWord(element, error) {
+                let currentText = error.current;
+                
+                function deleteCharacters() {
+                    if (currentText.length > 6) {
+                        currentText = currentText.substring(0, currentText.length - 1);
+                        element.textContent = currentText;
+                        setTimeout(deleteCharacters, typingSpeed * 1.5);
+                    } else {
+                        typeWordCorrection(element, error);
+                    }
+                }
+                
+                deleteCharacters();
+            }
+
+            function typeCorrectText(element, error) {
+                const correctText = error.correct;
+                let index = 0;
+                let currentText = '';
+                
+                function typeCharacter() {
+                    if (index < correctText.length) {
+                        currentText += correctText.charAt(index);
+                        element.textContent = currentText;
+                        index++;
+                        setTimeout(typeCharacter, typingSpeed);
+                    } else {
+                        finishFix(element, error);
+                    }
+                }
+                
+                typeCharacter();
+            }
+
+            function typeWordCorrection(element, error) {
+                const correction = 'ar';
+                let index = 0;
+                let currentText = element.textContent;
+                
+                function typeCharacter() {
+                    if (index < correction.length) {
+                        currentText += correction.charAt(index);
+                        element.textContent = currentText;
+                        index++;
+                        setTimeout(typeCharacter, typingSpeed);
+                    } else {
+                        finishFix(element, error);
+                    }
+                }
+                
+                typeCharacter();
+            }
+
+            function finishFix(element, error) {
+                setTimeout(() => {
+                    element.classList.remove('error', 'fixing');
+                    
+                    if (error.type === 'word') {
+                        element.classList.remove('word', 'error');
+                        element.classList.add('word', 'correct');
+                    } else {
+                        element.classList.add('correct');
+                    }
+                    
+                    isFixing = false;
+                    moveToNextError();
+                }, 500);
+            }
+
+            function moveToNextError() {
+                currentErrorIndex++;
+                
+                if (currentErrorIndex >= errors.length) {
+                    // Reinicia a animação após 3 segundos
+                    setTimeout(() => {
+                        resetCase1Errors();
+                        currentErrorIndex = 0;
+                        setTimeout(startAnimation, 1500);
+                    }, 3000);
+                } else {
+                    setTimeout(startAnimation, pauseBetweenErrors);
+                }
+            }
+
+            function resetCase1Errors() {
+                errors.forEach(error => {
+                    const element = document.getElementById(error.id);
+                    if (element) {
+                        element.textContent = error.current;
+                        element.classList.remove('correct', 'fixing');
+                        if (error.type === 'word') {
+                            element.classList.remove('word', 'correct');
+                            element.classList.add('word', 'error');
+                        } else {
+                            element.classList.add('error');
+                        }
+                    }
+                });
+            }
+
+            // Iniciar animação
+            setTimeout(startAnimation, 1000);
+        }
+
+        function animateCase2Correction() {
+            const corrections = [
+                { id: 'case2-correct1', original: '{A: Joe Doe', delay: 500 },
+                { id: 'case2-correct2', original: 'Angry ||', delay: 1000 },
+                { id: 'case2-correct3', original: 'John', delay: 1500 },
+                { id: 'case2-correct4', original: 'knocks on door', delay: 2000 }
+            ];
+            
+            corrections.forEach(correction => {
+                setTimeout(() => {
+                    const element = document.getElementById(correction.id);
+                    if (element) {
+                        element.style.opacity = '0';
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                            element.style.transition = 'opacity 0.5s ease';
+                        }, 100);
+                    }
+                }, correction.delay);
+            });
+            
+            // Loop da animação
+            setTimeout(() => {
+                corrections.forEach(correction => {
+                    const element = document.getElementById(correction.id);
+                    if (element) {
+                        element.style.opacity = '0.5';
+                    }
+                });
+                setTimeout(animateCase2Correction, 1000);
+            }, 4000);
+        }
+
+        // Chatbot interaction para Case Study 3
+        let chatCurrentStep = 1;
+        let chatSelectedPath = '';
+        const chatSteps = {
+            1: {
+                message: 'What are you looking for?',
+                buttons: [
+                    { text: 'Policy', value: 'Policy' },
+                    { text: 'Annual Review', value: 'Annual Review' }
+                ]
+            },
+            2: {
+                Policy: {
+                    message: 'Which policy type?',
+                    buttons: [
+                        { text: 'Renewal', value: 'Policy Renewal' },
+                        { text: 'Amendment', value: 'Policy Amendment' },
+                        { text: 'Cancellation', value: 'Policy Cancellation' }
+                    ]
+                },
+                'Annual Review': {
+                    message: 'Annual review options:',
+                    buttons: [
+                        { text: 'Schedule', value: 'Schedule Review' },
+                        { text: 'Documents', value: 'Review Documents' },
+                        { text: 'Process', value: 'Review Process' }
+                    ]
+                }
+            },
+            3: {
+                'Policy Renewal': {
+                    message: 'Policy renewal requires: 1) Current policy number 2) Updated information 3) Payment details. Would you like to proceed?',
+                    buttons: [
+                        { text: 'Proceed to Renewal', value: 'proceed' },
+                        { text: 'Start again', value: 'restart' }
+                    ]
+                },
+                'Policy Amendment': {
+                    message: 'For policy amendments, please provide: 1) Policy number 2) Changes required 3) Effective date.',
+                    buttons: [
+                        { text: 'Submit Amendment', value: 'submit' },
+                        { text: 'Start again', value: 'restart' }
+                    ]
+                }
+            }
+        };
+
+        window.chatStep = function(next, selection = '') {
+            const container = document.getElementById('case3-chatbot');
+            if (!container) return;
+            
+            if (selection === 'restart') {
+                chatCurrentStep = 1;
+                chatSelectedPath = '';
+            } else if (selection) {
+                chatSelectedPath = selection;
+                chatCurrentStep = next;
+            } else {
+                chatCurrentStep = next;
+            }
+            
+            let stepData;
+            if (chatCurrentStep === 1) {
+                stepData = chatSteps[1];
+            } else if (chatCurrentStep === 2) {
+                stepData = chatSteps[2][chatSelectedPath];
+            } else if (chatCurrentStep === 3) {
+                stepData = chatSteps[3][chatSelectedPath];
+            } else {
+                chatCurrentStep = 1;
+                stepData = chatSteps[1];
+            }
+            
+            const buttonsHTML = stepData.buttons.map(btn => 
+                `<button class="chat-btn" onclick="chatStep(${chatCurrentStep + 1}, '${btn.value}')">${btn.text}</button>`
+            ).join('');
+            
+            container.innerHTML = `
+                <div class="chat-message">
+                    <span style="color: var(--muted-foreground);">${stepData.message}</span>
+                </div>
+                <div class="chat-buttons">${buttonsHTML}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
