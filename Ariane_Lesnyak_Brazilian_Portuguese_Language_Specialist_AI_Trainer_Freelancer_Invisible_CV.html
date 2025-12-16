@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ariane Lesnyak — CV (Portuguese Language Specialist / AI Trainer)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #ffffff;
+      --primary: #0F0F0F;
+      --muted: #6b7280;
+      --border: rgba(0,0,0,0.05);
+      --bg-light: #F5F5F5;
+      --accent-pink: #FF69B4;
+      --accent-blue: #40E0D0;
+      --accent-yellow: #dcf58f;
+      --card-bg: #ffffff;
+      --radius: 12px;
+      --section-gap: 32px;
+      --max-width: 960px;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--primary);
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    /* Header */
+    header {
+      margin-bottom: var(--section-gap);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 14px;
+      align-items: center;
+    }
+
+    .contact-item {
+      color: var(--primary);
+      opacity: 0.9;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-item a:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .location {
+      background: var(--bg-light);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    /* Full width sections */
+    .full-width {
+      width: 100%;
+      margin-bottom: var(--section-gap);
+    }
+
+    h2.section {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .summary {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--primary);
+      max-width: 800px;
+    }
+
+    /* Projects boxes */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 840px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-box {
+      background: var(--bg-light);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .project-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .project-label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 24px;
+    }
+
+    .job-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .job-company {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .job-desc ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    .job-desc li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    /* Two-column grid */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: var(--section-gap);
+    }
+
+    @media (max-width: 840px) {
+      .two-col-grid { grid-template-columns: 1fr; }
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: var(--bg-light);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tool-tag {
+      background: var(--bg-light);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+    }
+
+    /* Education */
+    .education-item {
+      margin-bottom: 16px;
+    }
+
+    .education-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .education-details {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Languages & Why fit */
+    .languages strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .why-fit p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--primary);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Ariane Lesnyak</h1>
+      <div class="subtitle">Portuguese (Brazil) Language Specialist — AI Trainer & Linguistic QA</div>
+      <div class="contact-info">
+        <div class="contact-item">ariane.etimo@gmail.com</div>
+        <div class="contact-item">+55 (11) 94388-2913</div>
+        <div class="location">São Paulo, Brazil</div>
+        <div class="contact-item"><a href="https://www.linkedin.com/in/arianelesnyak/" target="_blank">LinkedIn</a></div>
+        <div class="contact-item"><a href="#" target="_blank">Portfolio</a></div>
+      </div>
+    </header>
+
+    <!-- Professional Summary - Full width -->
+    <div class="full-width">
+      <h2 class="section">Professional Summary</h2>
+      <p class="summary">
+        Native Brazilian Portuguese linguist with 10+ years in translation, editing, and AI content optimization. Expertise in identifying and correcting model failures across syntax, semantics, pragmatics, and sociolinguistics. Proven track record in training LLMs through high-quality data annotation, prompt engineering, and detailed failure mode documentation. Excel at clear, metacognitive communication to support engineering improvements.
+      </p>
+    </div>
+
+    <!-- Selected Projects - Three boxes full width -->
+    <div class="full-width">
+      <h2 class="section">Key Achievements & Outcomes</h2>
+      <div class="projects-grid">
+        <div class="project-box">
+          <div class="project-value">70%</div>
+          <div class="project-label">Reduction in recurring linguistic errors through targeted QA and style guides</div>
+        </div>
+        <div class="project-box">
+          <div class="project-value">15K+</div>
+          <div class="project-label">AI-generated outputs reviewed and optimized for nativeness and accuracy</div>
+        </div>
+        <div class="project-box">
+          <div class="project-value">95%</div>
+          <div class="project-label">Consistency achieved in large-scale dataset curation and terminology management</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience - Full width -->
+    <div class="full-width">
+      <h2 class="section">Work Experience</h2>
+      <div class="job">
+        <div class="job-title">Content Editor & AI Training Expert</div>
+        <div class="job-company">TW' Content Business | Claro Telecom · 2020 — Present</div>
+        <div class="job-desc">
+          <ul>
+            <li>Designed and validated conversational datasets and prompts to improve Portuguese model reasoning and contextual accuracy.</li>
+            <li>Led LQA programs with custom error taxonomy; improved engineering fix-rate by 65% through prioritized reports.</li>
+            <li>Rewrote and validated 15,000+ CRM, UX, and chatbot strings; consistently top 2% quality ranking.</li>
+            <li>Built terminology base of 700+ validated terms, reducing inconsistency by 65%.</li>
+            <li>Trained 15+ linguists, achieving 85% improvement in delivery consistency.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-title">Freelance Linguistic Specialist & AI Data Expert</div>
+        <div class="job-company">Multiple Clients (Streaming, Localization, Tech) · 2016 — Present</div>
+        <div class="job-desc">
+          <ul>
+            <li>Localized 100,000+ UI strings and performed MTPE for global platforms.</li>
+            <li>Annotated metadata and subtitles with 98% accuracy for streaming services.</li>
+            <li>Designed annotation protocols and documented LLM failure modes with reproducible traces.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills + Tools - Two columns -->
+    <div class="two-col-grid">
+      <div>
+        <h2 class="section">Core Skills</h2>
+        <div style="margin-bottom: 20px;">
+          <strong>Hard Skills</strong>
+          <div class="skills-list">
+            <div class="skill-tag">Syntax & Morphology</div>
+            <div class="skill-tag">Semantics & Pragmatics</div>
+            <div class="skill-tag">Sociolinguistics</div>
+            <div class="skill-tag">Prompt Engineering</div>
+            <div class="skill-tag">Data Annotation</div>
+            <div class="skill-tag">Failure Mode Documentation</div>
+            <div class="skill-tag">Linguistic QA</div>
+          </div>
+        </div>
+        <div>
+          <strong>Soft Skills</strong>
+          <div class="skills-list">
+            <div class="skill-tag">Metacognitive Communication</div>
+            <div class="skill-tag">Analytical Reasoning</div>
+            <div class="skill-tag">Attention to Detail</div>
+            <div class="skill-tag">Cross-Functional Collaboration</div>
+            <div class="skill-tag">Problem Solving</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="section">Tools & Platforms</h2>
+        <div class="tools-list">
+          <div class="tool-tag">Trados Studio</div>
+          <div class="tool-tag">memoQ</div>
+          <div class="tool-tag">Smartcat</div>
+          <div class="tool-tag">Subtitle Edit / EZTitles</div>
+          <div class="tool-tag">LLM Interfaces</div>
+          <div class="tool-tag">Custom MT Engines</div>
+          <div class="tool-tag">JSON / XML / HTML</div>
+          <div class="tool-tag">Annotation Platforms</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education - Full width -->
+    <div class="full-width">
+      <h2 class="section">Education</h2>
+      <div class="education-item">
+        <div class="education-title">BA in English & Portuguese Linguistics</div>
+        <div class="education-details">University of São Paulo (USP) · 2015 — 2019</div>
+        <div class="education-details">Focus: morphosyntax, discourse analysis, sociolinguistics. Thesis on creole-influenced Brazilian Portuguese varieties with corpus construction and pattern analysis.</div>
+      </div>
+      <div class="education-item">
+        <div class="education-title">Associate Degree in Information Technology</div>
+        <div class="education-details">Marechal Rondon School · 2007 — 2009</div>
+        <div class="education-details">Foundational programming, database management, and web technologies.</div>
+      </div>
+    </div>
+
+    <!-- Languages + Why Fit - Two columns -->
+    <div class="two-col-grid">
+      <div class="languages">
+        <h2 class="section">Languages</h2>
+        <strong>Portuguese (Brazilian) — Native</strong>
+        <div style="font-size:14px;color:var(--muted);margin-top:8px;">
+          English — Fluent/Bilingual<br>
+          French — Advanced<br>
+          Spanish — Intermediate
+        </div>
+      </div>
+      <div class="why-fit">
+        <h2 class="section">Why I Fit This Role</h2>
+        <p>
+          I combine deep linguistic expertise (phonetics to sociolinguistics) with practical AI training experience: documenting reproducible failure modes, designing prompts, creating high-quality training data, and communicating findings clearly to engineering teams. Ready to contribute to hardening model reasoning in Brazilian Portuguese.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      Available for remote freelance/contract work · Open to skill assessments and paid trials · References available upon request
+    </footer>
+  </div>
+</body>
+</html>
